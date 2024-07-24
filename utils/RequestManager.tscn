@@ -4,4 +4,3 @@
 
 [node name="RequestManager" type="Node"]
 script = ExtResource("1_34umk")
-api_key = "ef6f8cbb-e867-46fd-a10b-2c7c4c16a538"

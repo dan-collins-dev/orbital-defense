@@ -1,6 +1,6 @@
 extends Node
 
-@export var api_key: String = ""
+@export var id: String = ""
 
 
 func get_hiscores() -> void:
@@ -8,12 +8,12 @@ func get_hiscores() -> void:
 	add_child(http_request)
 	http_request.request_completed.connect(self._on_get_request_completed)
 	
-	var error = http_request.request("http://localhost:6500/api/scores/%s" % [api_key])
+	var error = http_request.request("http://localhost:6500/api/scores/%s" % [id])
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 
 
-func post_hiscore(player_name: String, score: int ) -> void:
+func post_hiscore(player_name: String, score: int) -> void:
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._on_post_request_completed)
@@ -23,20 +23,20 @@ func post_hiscore(player_name: String, score: int ) -> void:
 		"score": score,
 	}
 	var body = JSON.new().stringify(data)
-	var error = http_request.request("http://localhost:6500/api/scores/%s" % [api_key], 
+	var error = http_request.request("http://localhost:6500/api/scores/%s" % [id], 
 				headers, HTTPClient.METHOD_POST, body)
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 
 
-func _on_get_request_completed(result, response_code, headers, body):
+func _on_get_request_completed(result, response_code, headers, body) -> void:
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	print("==== Get Response =====")
 	print(response)
 
-func _on_post_request_completed(result, response_code, headers, body):
+func _on_post_request_completed(result, response_code, headers, body) -> void:
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
