@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx3wredkpkryf"]
+
+[ext_resource type="Script" path="res://scenes/ui-components/ScoreRow.gd" id="1_6bpbw"]
+[ext_resource type="FontFile" uid="uid://cukbh76vmlrwj" path="res://fonts/PressStart2P-Regular.ttf" id="1_s1kyt"]
+
+[node name="ScoreRow" type="HBoxContainer"]
+script = ExtResource("1_6bpbw")
+
+[node name="Rank" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_s1kyt")
+theme_override_font_sizes/font_size = 4
+text = "1"
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s1kyt")
+theme_override_font_sizes/font_size = 4
+text = "Player Name"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_s1kyt")
+theme_override_font_sizes/font_size = 4
+text = "10000"
+horizontal_alignment = 2
