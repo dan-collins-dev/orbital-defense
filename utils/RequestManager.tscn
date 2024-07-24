@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi2v1xvdtgfu5"]
+
+[ext_resource type="Script" path="res://utils/RequestManager.gd" id="1_34umk"]
+
+[node name="RequestManager" type="Node"]
+script = ExtResource("1_34umk")
+api_key = "ef6f8cbb-e867-46fd-a10b-2c7c4c16a538"
