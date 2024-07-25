@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhrlgyree6pp8"]
+
+[ext_resource type="Script" path="res://entities/Satellite.gd" id="1_bv3hu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40x72"]
+radius = 3.0
+height = 14.0
+
+[node name="Satellite" type="Node2D"]
+script = ExtResource("1_bv3hu")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_40x72")
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(0, -5)

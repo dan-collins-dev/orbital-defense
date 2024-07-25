@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4h8hygtd8kkm"]
+
+[ext_resource type="Script" path="res://scenes/World.gd" id="1_86536"]
+[ext_resource type="PackedScene" uid="uid://uff7pltj7pf2" path="res://entities/Planet.tscn" id="1_wko1x"]
+[ext_resource type="PackedScene" uid="uid://cieuyrs086fl" path="res://entities/OrbitalDefense.tscn" id="3_j4jyk"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_86536")
+
+[node name="Planet" parent="." instance=ExtResource("1_wko1x")]
+position = Vector2(50, 50)
+
+[node name="OrbitalDefense" parent="Planet" instance=ExtResource("3_j4jyk")]
+position = Vector2(50, 50)
+
+[node name="CollisionPolygon2D" parent="Planet/OrbitalDefense/Satellite/Hurtbox" index="0"]
+visible = true
+
+[editable path="Planet"]
+[editable path="Planet/OrbitalDefense"]
+[editable path="Planet/OrbitalDefense/Satellite"]

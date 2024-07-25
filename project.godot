@@ -32,6 +32,14 @@ window/stretch/scale_mode="integer"
 
 naming/scene_name_casing=1
 
+[layer_names]
+
+2d_physics/layer_1="SatelliteHurtbox"
+2d_physics/layer_2="AsteroidHitbox"
+2d_physics/layer_3="PlanetHurtbox"
+2d_physics/layer_4="AsteroidHurtbox"
+2d_physics/layer_5="ProjectileHitbox"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

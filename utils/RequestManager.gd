@@ -38,7 +38,7 @@ func post_hiscore(player_name: String, score: int) -> void:
 func format_response(res_data: Dictionary) -> void:
 	# Sort scores so that they display from highest to lowest
 	var sorted_scores: Array = []
-	sorted_scores.push_front([PersistantData.player_name, str(PersistantData.score)])
+	#sorted_scores.push_front([PersistantData.player_name, str(PersistantData.score)])
 	for entry in res_data.data:
 		sorted_scores.push_front([entry.player_name, entry.score])
 	sorted_scores.sort_custom(func(a, b): return int(a[1]) > int(b[1]))
