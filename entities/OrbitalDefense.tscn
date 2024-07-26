@@ -3,10 +3,18 @@
 [ext_resource type="Script" path="res://entities/OrbitalDefense.gd" id="1_cfbjn"]
 [ext_resource type="PackedScene" uid="uid://bhrlgyree6pp8" path="res://entities/Satellite.tscn" id="1_r877c"]
 
-[node name="OrbitalDefense" type="Node2D"]
+[node name="OrbitalDefense" type="Node2D" groups=["entities"]]
 script = ExtResource("1_cfbjn")
+move_speed = 150.0
 
 [node name="Satellite" parent="." instance=ExtResource("1_r877c")]
 position = Vector2(0, -24)
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_cool_down_timer_timeout"]
 
 [editable path="Satellite"]

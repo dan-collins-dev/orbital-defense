@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_as1n4"]
 
-[node name="Planet" type="Node2D"]
+[node name="Planet" type="Node2D" groups=["entities"]]
 script = ExtResource("1_oex8a")
 color = Color(0.3404, 0.35372, 0.74, 1)
 

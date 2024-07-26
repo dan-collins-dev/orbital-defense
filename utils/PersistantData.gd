@@ -1,20 +1,30 @@
 class_name PersitantData
 extends Resource
 
-var player_name: String = "Dan"
-var score: int = 25000 : set = set_score
-var max_health: int = 3 : set = set_max_health
-var current_health = 3 : set = set_current_health
+signal score_changed(score)
+signal ship_health_changed(health)
+signal planet_health_changed(health)
+signal ship_death
+signal planet_death
+signal game_over
+
+var player_name: String = ""
+var score: int = 0 : set = set_score
+var ship_health: int = 3 : set = set_ship_health
+var planet_health: int = 10 : set = set_planet_health
 
 func set_score(amount: int) -> void:
 	score = amount
-	# TODO: emit signal for UI to listen to
+	emit_signal("score_changed", score)
 
-func set_max_health(amount: int) -> void:
-	max_health = amount
+func set_ship_health(amount: int) -> void:
+	ship_health = amount
+	emit_signal("ship_health_changed", ship_health)
+	if ship_health <= 0:
+		emit_signal("ship_death")
 	
-func set_current_health(amount: int) -> void:
-	current_health = amount
-	if current_health <= 0:
-		# TODO: emit signal for a game over
-		pass
+func set_planet_health(amount: int) -> void:
+	planet_health = amount
+	emit_signal("planet_health_changed", planet_health)
+	if planet_health <= 0:
+		emit_signal("planet_death")

@@ -1,11 +1,14 @@
 extends Node2D
 
+@warning_ignore("shadowed_global_identifier")
+var PersitantData = ReferenceManager.PersitantData
 
-# Called when the node enters the scene tree for the first time.
+@onready var anims: AnimationPlayer = $Anims
+
+
 func _ready() -> void:
-	pass
+	PersitantData.connect("game_over", _on_game_over)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_game_over() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/MainMenu.tscn")

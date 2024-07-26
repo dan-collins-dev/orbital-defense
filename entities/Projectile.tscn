@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7n6h6rwpus32"]
+
+[ext_resource type="Script" path="res://entities/Projectile.gd" id="1_7i0nk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5dsr"]
+size = Vector2(3, 7)
+
+[node name="Projectile" type="Node2D" groups=["entities"]]
+script = ExtResource("1_7i0nk")
+color = Color(0, 0.654902, 0, 1)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_u5dsr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.1, 0.3)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -6,8 +6,10 @@
 radius = 3.0
 height = 14.0
 
-[node name="Satellite" type="Node2D"]
+[node name="Satellite" type="Node2D" groups=["entities"]]
 script = ExtResource("1_bv3hu")
+body_color = Color(0.856925, 0.00152671, 0.973189, 1)
+wing_color = Color(1, 1, 1, 1)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 2
