@@ -7,9 +7,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lw55j"]
 
 [node name="Asteroid" type="Node2D" groups=["entities"]]
+process_mode = 1
 script = ExtResource("1_8e1wf")
-radius = 3.0
-color = Color(0.352941, 0.368627, 0.317647, 1)
+radius = 10.0
+color = Color(0.186205, 0.19597, 0.164137, 1)
+health = 1
+damage = 1
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2

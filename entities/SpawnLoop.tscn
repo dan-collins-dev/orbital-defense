@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgwo30js7cpb3"]
+
+[ext_resource type="Script" path="res://entities/SpawnLoop.gd" id="1_tnton"]
+[ext_resource type="PackedScene" uid="uid://bn3no5ve2a2c6" path="res://entities/AsteroidSpawner.tscn" id="2_3ou75"]
+
+[node name="SpawnLoop" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_tnton")
+
+[node name="AsteroidSpawner" parent="." instance=ExtResource("2_3ou75")]
+position = Vector2(0, -105)

@@ -1,6 +1,6 @@
 extends Node
 
-var PersistantData = ReferenceManager.PersitantData
+var PersistantData = ReferenceManager.PlayerData
 @export var id: String = ""
 
 signal request_complete(data: Array, rank: int)

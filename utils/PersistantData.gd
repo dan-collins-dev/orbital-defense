@@ -1,4 +1,4 @@
-class_name PersitantData
+class_name PlayerData
 extends Resource
 
 signal score_changed(score)

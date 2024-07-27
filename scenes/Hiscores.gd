@@ -4,7 +4,7 @@ var ScoreRow = preload("res://scenes/ui-components/ScoreRow.tscn")
 @onready var score_container: VBoxContainer = $ScoreContainer
 @onready var request_manager: Node = $RequestManager
 
-var PersistantData = ReferenceManager.PersitantData
+var PersistantData = ReferenceManager.PlayerData
 
 var score_data: Dictionary
 var sorted_scores: Array = []

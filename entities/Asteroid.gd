@@ -1,14 +1,14 @@
 extends Node2D
 
-var PersistantData = ReferenceManager.PersitantData
+var PersistantData = ReferenceManager.PlayerData
 
 @export_group("Shape Settings")
-@export var radius: float = 10
+@export var radius: float = 0
 @export var color: Color
 
 @export_group("Stat Settings")
-@export var health: int = 3
-@export var damage: int = 1
+@export var health: int = 0
+@export var damage: int = 0
 @export var speed: float = 0.1
 
 @onready var hitbox_collider: CollisionShape2D = $Hitbox/CollisionShape2D

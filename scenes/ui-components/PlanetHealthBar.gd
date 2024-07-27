@@ -1,6 +1,6 @@
 extends TextureProgressBar
 
-var PersistantData = ReferenceManager.PersitantData
+var PersistantData = ReferenceManager.PlayerData
 
 func _ready() -> void:
 	if PersistantData:

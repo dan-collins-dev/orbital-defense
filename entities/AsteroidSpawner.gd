@@ -5,20 +5,26 @@ var can_spawn: bool = false
 @onready var spawn_delay: Timer = $SpawnDelay
 @onready var initial_delay: Timer = $InitialDelay
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	initial_delay.start()
+	look_at(Vector2.ZERO)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	
 	if can_spawn:
 		can_spawn = false
 		spawn_delay.start()
 		var a = Asteroid.instantiate()
 		a.global_position = global_position
-		get_parent().add_child(a)
+		get_parent().get_parent().add_child(a)
+	queue_redraw()
 
+func _draw():
+	draw_circle(Vector2.ZERO, 2, Color.BLANCHED_ALMOND)
 
 func _on_spawn_delay_timeout() -> void:
 	can_spawn = true

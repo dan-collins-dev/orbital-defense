@@ -1,6 +1,6 @@
 extends Node2D
 
-var PersistantData = ReferenceManager.PersitantData
+var PersistantData = ReferenceManager.PlayerData
 
 @export_group("Shape Settings")
 @export var radius: float = 10.0

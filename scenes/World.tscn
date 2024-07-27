@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://uff7pltj7pf2" path="res://entities/Planet.tscn" id="1_wko1x"]
 [ext_resource type="PackedScene" uid="uid://cieuyrs086fl" path="res://entities/OrbitalDefense.tscn" id="3_cgheh"]
 [ext_resource type="PackedScene" uid="uid://dd7n34k6enh58" path="res://scenes/ui/Ui.tscn" id="4_uk1ko"]
-[ext_resource type="PackedScene" uid="uid://bn3no5ve2a2c6" path="res://entities/AsteroidSpawner.tscn" id="5_vdy4y"]
+[ext_resource type="PackedScene" uid="uid://cgwo30js7cpb3" path="res://entities/SpawnLoop.tscn" id="6_kdl7r"]
 [ext_resource type="PackedScene" uid="uid://dh4ya5m730ton" path="res://entities/PlanetExplosion.tscn" id="6_mpsub"]
 
 [node name="World" type="Node2D"]
@@ -16,49 +16,27 @@ script = ExtResource("1_86536")
 [node name="Planet" parent="." instance=ExtResource("1_wko1x")]
 z_index = 10
 
+[node name="PlanetExplosion" parent="." instance=ExtResource("6_mpsub")]
+z_index = 20
+
 [node name="OrbitalDefense" parent="." instance=ExtResource("3_cgheh")]
-
-[node name="AsteroidSpawners" type="Node" parent="."]
 process_mode = 1
-
-[node name="AsteroidSpawner" parent="AsteroidSpawners" instance=ExtResource("5_vdy4y")]
-position = Vector2(90, -120)
-
-[node name="InitialDelay" parent="AsteroidSpawners/AsteroidSpawner" index="1"]
-wait_time = 0.25
-
-[node name="AsteroidSpawner2" parent="AsteroidSpawners" instance=ExtResource("5_vdy4y")]
-position = Vector2(26, -121)
-
-[node name="AsteroidSpawner3" parent="AsteroidSpawners" instance=ExtResource("5_vdy4y")]
-position = Vector2(-116, -112)
-
-[node name="InitialDelay" parent="AsteroidSpawners/AsteroidSpawner3" index="1"]
-wait_time = 4.704
-
-[node name="AsteroidSpawner4" parent="AsteroidSpawners" instance=ExtResource("5_vdy4y")]
-position = Vector2(-125, -37)
-
-[node name="AsteroidSpawner5" parent="AsteroidSpawners" instance=ExtResource("5_vdy4y")]
-position = Vector2(121, 48)
-
-[node name="AsteroidSpawner6" parent="AsteroidSpawners" instance=ExtResource("5_vdy4y")]
-position = Vector2(130, -44)
 
 [node name="Anims" type="AnimationPlayer" parent="."]
 process_mode = 3
 
 [node name="UI" parent="." instance=ExtResource("4_uk1ko")]
 
-[node name="PlanetExplosion" parent="." instance=ExtResource("6_mpsub")]
-z_index = 20
+[node name="SpawnLoop" parent="." instance=ExtResource("6_kdl7r")]
+
+[node name="SpawnDelay" parent="SpawnLoop/AsteroidSpawner" index="0"]
+wait_time = 1.0
+
+[node name="InitialDelay" parent="SpawnLoop/AsteroidSpawner" index="1"]
+wait_time = 0.2
 
 [editable path="Planet"]
 [editable path="OrbitalDefense"]
 [editable path="OrbitalDefense/Satellite"]
-[editable path="AsteroidSpawners/AsteroidSpawner"]
-[editable path="AsteroidSpawners/AsteroidSpawner2"]
-[editable path="AsteroidSpawners/AsteroidSpawner3"]
-[editable path="AsteroidSpawners/AsteroidSpawner4"]
-[editable path="AsteroidSpawners/AsteroidSpawner5"]
-[editable path="AsteroidSpawners/AsteroidSpawner6"]
+[editable path="SpawnLoop"]
+[editable path="SpawnLoop/AsteroidSpawner"]

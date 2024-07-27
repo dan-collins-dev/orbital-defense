@@ -1,6 +1,6 @@
 extends Label
 
-var PersistantData = ReferenceManager.PersitantData
+var PersistantData = ReferenceManager.PlayerData
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

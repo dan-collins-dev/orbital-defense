@@ -1,11 +1,11 @@
 extends Node2D
 
-var PersitantData = ReferenceManager.PersitantData
+var PlayerData = ReferenceManager.PlayerData
 @export var radius: float = 0
 @onready var anims: AnimationPlayer = $Animations
 
 func _ready() -> void:
-	PersitantData.connect("planet_death", _on_planet_death)
+	PlayerData.connect("planet_death", _on_planet_death)
 
 func _physics_process(delta: float) -> void:
 	queue_redraw()
@@ -27,4 +27,4 @@ func _on_animations_animation_finished(anim_name: StringName) -> void:
 			anims.play("shrink")
 		
 		"shrink":
-			PersitantData.emit_signal("game_over")
+			PlayerData.emit_signal("game_over")
