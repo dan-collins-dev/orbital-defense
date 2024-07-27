@@ -28,6 +28,7 @@ process_mode = 3
 [node name="UI" parent="." instance=ExtResource("4_uk1ko")]
 
 [node name="SpawnLoop" parent="." instance=ExtResource("6_kdl7r")]
+move_speed = 100.0
 
 [node name="SpawnDelay" parent="SpawnLoop/AsteroidSpawner" index="0"]
 wait_time = 1.0

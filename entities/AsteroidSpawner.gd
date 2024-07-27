@@ -19,11 +19,12 @@ func _physics_process(delta: float) -> void:
 	if can_spawn:
 		can_spawn = false
 		spawn_delay.start()
-		var type: PackedScene = asteroids.pick_random()
-		var a = type.instantiate()
-		a.global_position = global_position
-		get_parent().get_parent().add_child(a)
-	queue_redraw()
+		var asteroid_type: PackedScene = asteroids.pick_random()
+		var asteroid = asteroid_type.instantiate()
+		asteroid.global_position = global_position
+		get_parent().get_parent().add_child(asteroid)
+		
+	#queue_redraw()
 
 func _draw():
 	draw_circle(Vector2.ZERO, 2, Color.BLANCHED_ALMOND)

@@ -12,7 +12,6 @@ var PlayerData = ReferenceManager.PlayerData
 @export var speed: float = 0.1
 
 @onready var hitbox_collider: CollisionShape2D = $Hitbox/CollisionShape2D
-@onready var hitbox_radius: float = $Hitbox/CollisionShape2D.shape.radius
 @onready var hurtbox_collider: CollisionShape2D = $Hurtbox/CollisionShape2D
 
 var direction: Vector2 = Vector2.ZERO
@@ -28,6 +27,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
+	
 	
 
 func _draw() -> void:

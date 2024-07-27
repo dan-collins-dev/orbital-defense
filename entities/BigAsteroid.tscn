@@ -1,7 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://yfnkw24fybev"]
+[gd_scene load_steps=4 format=3 uid="uid://yfnkw24fybev"]
 
-[ext_resource type="PackedScene" uid="uid://cu37e7snp48d5" path="res://entities/Asteroid.tscn" id="1_wnjyp"]
+[ext_resource type="Script" path="res://entities/BigAsteroid.gd" id="2_lv1y7"]
 
-[node name="BigAsteroid" instance=ExtResource("1_wnjyp")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_uidjn"]
+radius = 0.01
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lw55j"]
+
+[node name="BigAsteroid" type="Node2D" groups=["entities"]]
+process_mode = 1
+script = ExtResource("2_lv1y7")
 radius = 6.0
-health = 3
+color = Color(0.2976, 0.31, 0.062, 1)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_uidjn")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_lw55j")
+debug_color = Color(0.553764, 0.418272, 0.957799, 0.42)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
