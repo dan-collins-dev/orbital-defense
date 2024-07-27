@@ -1,5 +1,6 @@
 extends TextureProgressBar
 
+@warning_ignore("shadowed_global_identifier")
 var PlayerData = ReferenceManager.PlayerData
 
 func _ready() -> void:

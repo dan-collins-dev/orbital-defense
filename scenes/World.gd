@@ -4,6 +4,7 @@ extends Node2D
 var PlayerData = ReferenceManager.PlayerData
 
 @onready var anims: AnimationPlayer = $Anims
+@onready var game_timer: Timer = $GameTimer
 
 
 func _ready() -> void:
@@ -12,3 +13,5 @@ func _ready() -> void:
 
 func _on_game_over() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/MainMenu.tscn")
+
+

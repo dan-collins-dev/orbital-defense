@@ -10,8 +10,8 @@ radius = 0.01
 [node name="SmallAsteroid" type="Node2D" groups=["entities"]]
 process_mode = 1
 script = ExtResource("2_hgxgc")
-radius = 3.0
 color = Color(0.2976, 0.31, 0.062, 1)
+health = 1
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2

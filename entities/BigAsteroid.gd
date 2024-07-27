@@ -1,15 +1,17 @@
 extends Node2D
 
+@warning_ignore("shadowed_global_identifier")
 var PlayerData = ReferenceManager.PlayerData
 
 @export_group("Shape Settings")
-@export var radius: float = 0
+@export var radius: float = 6
 @export var color: Color
 
 @export_group("Stat Settings")
-@export var health: int = 0
-@export var damage: int = 0
+@export var health: int = 3
+@export var damage: int = 3
 @export var speed: float = 0.1
+@export var score: int = 300
 
 @onready var hitbox_collider: CollisionShape2D = $Hitbox/CollisionShape2D
 @onready var hurtbox_collider: CollisionShape2D = $Hurtbox/CollisionShape2D

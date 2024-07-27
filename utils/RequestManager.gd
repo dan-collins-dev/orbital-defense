@@ -6,8 +6,8 @@ var PlayerData = ReferenceManager.PlayerData
 signal request_complete(data: Array, rank: int)
 
 func _ready() -> void:
-	pass
-	#get_hiscores()
+	#pass
+	get_hiscores()
 
 func get_hiscores() -> void:
 	var http_request = HTTPRequest.new()

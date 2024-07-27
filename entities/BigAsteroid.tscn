@@ -10,8 +10,8 @@ radius = 0.01
 [node name="BigAsteroid" type="Node2D" groups=["entities"]]
 process_mode = 1
 script = ExtResource("2_lv1y7")
-radius = 6.0
 color = Color(0.2976, 0.31, 0.062, 1)
+speed = 0.05
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2

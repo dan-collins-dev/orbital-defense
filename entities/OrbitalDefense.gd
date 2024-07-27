@@ -1,5 +1,6 @@
 extends Node2D
 
+@warning_ignore("shadowed_global_identifier")
 var PlayerData = ReferenceManager.PlayerData
 var Projectile = preload("res://entities/Projectile.tscn")
 

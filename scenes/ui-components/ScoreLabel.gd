@@ -1,5 +1,6 @@
 extends Label
 
+@warning_ignore("shadowed_global_identifier")
 var PlayerData = ReferenceManager.PlayerData
 
 # Called when the node enters the scene tree for the first time.
