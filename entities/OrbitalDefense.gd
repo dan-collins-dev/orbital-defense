@@ -1,6 +1,6 @@
 extends Node2D
 
-var PersistantData = ReferenceManager.PlayerData
+var PlayerData = ReferenceManager.PlayerData
 var Projectile = preload("res://entities/Projectile.tscn")
 
 @onready var muzzle: Node2D = $Satellite/Muzzle

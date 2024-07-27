@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yfnkw24fybev"]
+
+[ext_resource type="PackedScene" uid="uid://cu37e7snp48d5" path="res://entities/Asteroid.tscn" id="1_wnjyp"]
+
+[node name="BigAsteroid" instance=ExtResource("1_wnjyp")]
+radius = 6.0
+health = 3

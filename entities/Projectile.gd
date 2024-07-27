@@ -8,16 +8,12 @@ extends Node2D
 @export_group("Stat Settings")
 @export var damage: int = 1
 @export var speed: float = 3.0
-var direction = Vector2(1, 1)
 
 @onready var hitbox: Area2D = $Hitbox
 
+var direction = Vector2(1, 1)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 

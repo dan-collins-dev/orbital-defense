@@ -1,6 +1,6 @@
 extends Node
 
-var PersistantData = ReferenceManager.PlayerData
+var PlayerData = ReferenceManager.PlayerData
 @export var id: String = ""
 
 signal request_complete(data: Array, rank: int)
@@ -25,8 +25,8 @@ func post_hiscore(player_name: String, score: int) -> void:
 	http_request.request_completed.connect(self._on_post_request_completed)
 	var headers = ["Content-Type: application/json"]
 	var data = {
-		"player_name": PersistantData.player_name,
-		"score": PersistantData.score,
+		"player_name": PlayerData.player_name,
+		"score": PlayerData.score,
 	}
 	var body = JSON.new().stringify(data)
 	var error = http_request.request("http://localhost:6500/api/scores/%s" % [id], 
@@ -38,7 +38,7 @@ func post_hiscore(player_name: String, score: int) -> void:
 func format_response(res_data: Dictionary) -> void:
 	# Sort scores so that they display from highest to lowest
 	var sorted_scores: Array = []
-	#sorted_scores.push_front([PersistantData.player_name, str(PersistantData.score)])
+	#sorted_scores.push_front([PlayerData.player_name, str(PlayerData.score)])
 	for entry in res_data.data:
 		sorted_scores.push_front([entry.player_name, entry.score])
 	sorted_scores.sort_custom(func(a, b): return int(a[1]) > int(b[1]))
@@ -55,7 +55,7 @@ func format_response(res_data: Dictionary) -> void:
 	# and add the player's score
 	elif rank >= 20:
 		final_scores = sorted_scores.slice(0, 19)
-		final_scores.push_back([PersistantData.player_name, PersistantData.score])
+		final_scores.push_back([PlayerData.player_name, PlayerData.score])
 	
 	emit_signal("request_complete", final_scores, rank)
 
@@ -63,7 +63,7 @@ func format_response(res_data: Dictionary) -> void:
 func get_rank(scores: Array) -> int:
 	var rank: int = 0
 	for i in range(scores.size()):
-		if scores[i][0] == PersistantData.player_name:
+		if scores[i][0] == PlayerData.player_name:
 			rank = i
 
 	return rank

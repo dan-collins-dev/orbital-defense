@@ -1,11 +1,11 @@
 extends Label
 
-var PersistantData = ReferenceManager.PlayerData
+var PlayerData = ReferenceManager.PlayerData
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PersistantData.connect("score_changed", _on_score_changed)
+	PlayerData.connect("score_changed", _on_score_changed)
 
 
 func _on_score_changed(score) -> void:
-	text = "Score: %s" % PersistantData.score
+	text = "Score: %s" % PlayerData.score

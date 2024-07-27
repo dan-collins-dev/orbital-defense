@@ -1,6 +1,6 @@
 extends Node2D
 
-var PersistantData = ReferenceManager.PlayerData
+var PlayerData = ReferenceManager.PlayerData
 
 @export_group("Shape Settings")
 @export var radius: float = 10.0
@@ -16,4 +16,4 @@ func _draw() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	PersistantData.planet_health -= area.get_parent().damage
+	PlayerData.planet_health -= area.get_parent().damage

@@ -1,6 +1,6 @@
 extends Node2D
 
-var PersistantData = ReferenceManager.PlayerData
+var PlayerData = ReferenceManager.PlayerData
 
 @export_group("Shape Settings")
 @export var radius: float = 0
@@ -37,7 +37,7 @@ func _draw() -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
-		PersistantData.score += 100
+		PlayerData.score += 100
 		queue_free()
 
 	
@@ -45,11 +45,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	match area.get_parent().name:
 		
 		"Planet":
-			PersistantData.planet_health -= damage
+			PlayerData.planet_health -= damage
 			queue_free()
 			
 		"Satellite":
-			PersistantData.ship_health -= damage
+			PlayerData.ship_health -= damage
 			queue_free()
 
 

@@ -1,6 +1,8 @@
 extends Node2D
 
+@warning_ignore("shadowed_global_identifier")
 var PlayerData = ReferenceManager.PlayerData
+
 @export var radius: float = 0
 @onready var anims: AnimationPlayer = $Animations
 
