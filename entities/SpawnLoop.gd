@@ -12,5 +12,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_increase_difficulty():
-	print("Spawn Loop Speed Increased")
 	move_speed += 5

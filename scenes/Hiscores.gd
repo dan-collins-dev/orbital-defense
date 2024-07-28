@@ -2,7 +2,6 @@ extends Control
 
 var ScoreRow = preload("res://scenes/ui-components/ScoreRow.tscn")
 @onready var score_container: VBoxContainer = $ScoreContainer
-@onready var request_manager: Node = $RequestManager
 
 var PlayerData = ReferenceManager.PlayerData
 
@@ -10,10 +9,12 @@ var score_data: Dictionary
 var sorted_scores: Array = []
 
 func _ready() -> void:
-	request_manager.get_hiscores()
+	if RequestManager.id != "":
+		RequestManager.connect("request_complete", _on_request_complete)
+		await RequestManager.post_hiscore(PlayerData.player_name, PlayerData.score)
 	
 
-func _on_request_manager_request_complete(data: Array, rank: int) -> void:
+func _on_request_complete(data: Array, rank: int) -> void:
 	var index: int = 0
 	
 	for entry in data:

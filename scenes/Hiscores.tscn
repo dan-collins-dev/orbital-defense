@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://fexh1lqu6nd6"]
+[gd_scene load_steps=3 format=3 uid="uid://fexh1lqu6nd6"]
 
 [ext_resource type="FontFile" uid="uid://cukbh76vmlrwj" path="res://fonts/PressStart2P-Regular.ttf" id="1_f4fvh"]
 [ext_resource type="Script" path="res://scenes/Hiscores.gd" id="1_j8cwy"]
-[ext_resource type="PackedScene" uid="uid://bi2v1xvdtgfu5" path="res://utils/RequestManager.tscn" id="2_mq73i"]
 
 [node name="Hiscores" type="Control"]
 layout_mode = 3
@@ -12,8 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j8cwy")
-
-[node name="RequestManager" parent="." instance=ExtResource("2_mq73i")]
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -40,5 +37,3 @@ offset_right = -16.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[connection signal="request_complete" from="RequestManager" to="." method="_on_request_manager_request_complete"]

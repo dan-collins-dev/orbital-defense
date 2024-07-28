@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbmna6epiwfp"]
+
+[ext_resource type="Script" path="res://scenes/GameOver.gd" id="1_1h0ke"]
+[ext_resource type="FontFile" uid="uid://cukbh76vmlrwj" path="res://fonts/PressStart2P-Regular.ttf" id="1_tfi4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_grlhd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vj245"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1h0ke")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 10.0
+offset_right = 36.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_tfi4j")
+theme_override_font_sizes/font_size = 8
+text = "Game Over"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 30.0
+offset_right = 36.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_tfi4j")
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 76.0
+offset_right = 40.0
+offset_bottom = 84.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_tfi4j")
+theme_override_font_sizes/font_size = 8
+text = "Enter Name"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -15.5
+offset_right = 70.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/caret_width = 8
+theme_override_fonts/font = ExtResource("1_tfi4j")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_grlhd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj245")
+max_length = 15
+caret_blink = true
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
