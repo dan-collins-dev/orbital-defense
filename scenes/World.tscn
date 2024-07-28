@@ -35,6 +35,10 @@ process_mode = 3
 
 [node name="Asteroids" type="Node" parent="."]
 
+[node name="Projectiles" type="Node" parent="."]
+
+[node name="Explosions" type="Node" parent="."]
+
 [editable path="Planet"]
 [editable path="OrbitalDefense"]
 [editable path="OrbitalDefense/Satellite"]

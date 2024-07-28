@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://yfnkw24fybev"]
+[gd_scene load_steps=5 format=3 uid="uid://yfnkw24fybev"]
 
 [ext_resource type="Script" path="res://entities/BigAsteroid.gd" id="2_lv1y7"]
+[ext_resource type="AudioStream" uid="uid://b3dex8y0rlu12" path="res://sounds/thud.wav" id="2_p3a64"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uidjn"]
 radius = 0.01
@@ -27,6 +28,9 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_lw55j")
 debug_color = Color(0.553764, 0.418272, 0.957799, 0.42)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p3a64")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

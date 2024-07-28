@@ -10,6 +10,7 @@ extends Node2D
 @export var speed: float = 3.0
 
 @onready var hitbox: Area2D = $Hitbox
+@onready var laser_sound: AudioStreamPlayer = $LaserSound
 
 var direction = Vector2(1, 1)
 

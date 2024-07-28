@@ -2,6 +2,7 @@ extends Node2D
 
 @warning_ignore("shadowed_global_identifier")
 var PlayerData = ReferenceManager.PlayerData
+var Explosion = preload("res://entities/Explosion.tscn")
 
 @export_group("Shape Settings")
 @export var radius: float = 6
@@ -15,13 +16,15 @@ var PlayerData = ReferenceManager.PlayerData
 
 @onready var hitbox_collider: CollisionShape2D = $Hitbox/CollisionShape2D
 @onready var hurtbox_collider: CollisionShape2D = $Hurtbox/CollisionShape2D
+@onready var hit_sound: AudioStreamPlayer = $HitSound
 
 var direction: Vector2 = Vector2.ZERO
-
+var explosions_node: Node
 
 func _ready() -> void:
 	hurtbox_collider.shape.radius = radius + 2
 	hitbox_collider.shape.radius = radius
+	explosions_node = get_tree().get_root().find_child("Explosions", true, false)
 	var target = get_tree().get_root().find_child("Planet", true, false)
 	if target:
 		direction = target.global_position - global_position
@@ -38,8 +41,11 @@ func _draw() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	if health > 0:
+		hit_sound.play()
 	if health <= 0:
-		PlayerData.score += 100
+		PlayerData.score += score
+		spawn_explosion(global_position)
 		queue_free()
 
 	
@@ -48,13 +54,24 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		
 		"Planet":
 			PlayerData.planet_health -= damage
+			hitbox_collider.set_deferred("disabled", true)
+			spawn_explosion(global_position)
 			queue_free()
 			
 		"Satellite":
 			PlayerData.ship_health -= damage
+			hitbox_collider.set_deferred("disabled", true)
+			spawn_explosion(global_position)
 			queue_free()
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	var dmg = area.get_parent().damage
 	take_damage(dmg)
+
+
+func spawn_explosion(pos: Vector2) -> void:
+	var e = Explosion.instantiate()
+	e.rotation_degrees = randf_range(0, 360)
+	e.global_position = pos
+	explosions_node.add_child(e)

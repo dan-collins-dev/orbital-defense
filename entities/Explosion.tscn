@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://rymmvvc0lrx6"]
+
+[ext_resource type="Script" path="res://entities/Explosion.gd" id="1_gf57o"]
+[ext_resource type="PackedScene" uid="uid://cs5k13sy7awr5" path="res://entities/Cloud.tscn" id="2_cc6f4"]
+[ext_resource type="Script" path="res://entities/Cloud.gd" id="3_l0bv5"]
+[ext_resource type="AudioStream" uid="uid://deim2bgej54ty" path="res://sounds/explode.wav" id="4_0s8ja"]
+
+[sub_resource type="Animation" id="Animation_aql66"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud2:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cloud3:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5]
+}
+
+[sub_resource type="Animation" id="Animation_17gjf"]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud1:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cloud2:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cloud3:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sfio4"]
+_data = {
+"RESET": SubResource("Animation_aql66"),
+"explode": SubResource("Animation_17gjf")
+}
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_gf57o")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cloud1" parent="." instance=ExtResource("2_cc6f4")]
+
+[node name="Cloud2" type="Node2D" parent="."]
+position = Vector2(-2, -1)
+script = ExtResource("3_l0bv5")
+radius = 0.0
+
+[node name="Cloud3" type="Node2D" parent="."]
+position = Vector2(3, -4)
+script = ExtResource("3_l0bv5")
+radius = 1.5
+
+[node name="Anims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sfio4")
+}
+
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0s8ja")
+pitch_scale = 0.56
+
+[connection signal="animation_finished" from="Anims" to="." method="_on_anims_animation_finished"]

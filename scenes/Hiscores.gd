@@ -3,6 +3,7 @@ extends Control
 var ScoreRow = preload("res://scenes/ui-components/ScoreRow.tscn")
 @onready var score_container: VBoxContainer = $ScoreContainer
 
+@warning_ignore("shadowed_global_identifier")
 var PlayerData = ReferenceManager.PlayerData
 
 var score_data: Dictionary
@@ -11,7 +12,7 @@ var sorted_scores: Array = []
 func _ready() -> void:
 	if RequestManager.id != "":
 		RequestManager.connect("request_complete", _on_request_complete)
-		await RequestManager.post_hiscore(PlayerData.player_name, PlayerData.score)
+		RequestManager.post_hiscore(PlayerData.player_name, PlayerData.score)
 	
 
 func _on_request_complete(data: Array, rank: int) -> void:

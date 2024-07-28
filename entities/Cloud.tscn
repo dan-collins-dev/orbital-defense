@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs5k13sy7awr5"]
+
+[ext_resource type="Script" path="res://entities/Cloud.gd" id="1_le822"]
+
+[node name="Cloud1" type="Node2D"]
+script = ExtResource("1_le822")
+radius = 0.0

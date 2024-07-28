@@ -12,7 +12,6 @@ func get_hiscores() -> void:
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._on_get_request_completed)
-	
 	var error = http_request.request("http://localhost:6500/api/scores/%s" % [id])
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")

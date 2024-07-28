@@ -6,6 +6,7 @@ var Projectile = preload("res://entities/Projectile.tscn")
 
 @onready var muzzle: Node2D = $Satellite/Muzzle
 @onready var cool_down_timer: Timer = $CoolDownTimer
+@onready var laser_sound: AudioStreamPlayer = $LaserSound
 
 @export var move_speed: float = 200.0
 var can_fire: bool = true
@@ -19,6 +20,7 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		if can_fire:
+			laser_sound.play()
 			can_fire = false
 			cool_down_timer.start()
 			var p = Projectile.instantiate()
