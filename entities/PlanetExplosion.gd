@@ -8,6 +8,7 @@ var PlayerData = ReferenceManager.PlayerData
 
 func _ready() -> void:
 	PlayerData.connect("planet_death", _on_planet_death)
+	PlayerData.connect("ship_death", _on_ship_death)
 
 func _physics_process(delta: float) -> void:
 	queue_redraw()
@@ -17,6 +18,10 @@ func _draw() -> void:
 
 
 func _on_planet_death() -> void:
+	get_tree().paused = true
+	anims.play("grow")
+
+func _on_ship_death() -> void:
 	get_tree().paused = true
 	anims.play("grow")
 

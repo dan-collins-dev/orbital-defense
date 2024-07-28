@@ -51,13 +51,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	match area.get_parent().name:
 		
 		"Planet":
-			PlayerData.planet_health -= damage
 			hitbox_collider.set_deferred("disabled", true)
 			spawn_explosion(global_position)
 			queue_free()
 			
 		"Satellite":
-			PlayerData.ship_health -= damage
 			hitbox_collider.set_deferred("disabled", true)
 			spawn_explosion(global_position)
 			queue_free()

@@ -62,7 +62,7 @@ func format_response(res_data: Dictionary) -> void:
 func get_rank( scores: Array) -> int:
 	var rank: int = 0
 	for i in range(scores.size()):
-		if scores[i][0] == PlayerData.get_player_name():
+		if scores[i][0] == PlayerData.player_name:
 			rank = i
 
 	return rank

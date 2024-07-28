@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd7n34k6enh58"]
+[gd_scene load_steps=5 format=3 uid="uid://dd7n34k6enh58"]
 
 [ext_resource type="PackedScene" uid="uid://bmwow11cd482f" path="res://scenes/ui-components/ScoreLabel.tscn" id="1_avufo"]
 [ext_resource type="Script" path="res://scenes/ui-components/ScoreLabel.gd" id="2_gimum"]
 [ext_resource type="PackedScene" uid="uid://cqr0c5hehbofx" path="res://scenes/ui-components/PlanetHealthBar.tscn" id="3_ntw68"]
+[ext_resource type="PackedScene" uid="uid://cgck4hbngllut" path="res://scenes/ui-components/ShiptHealthBar.tscn" id="4_iai13"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -10,3 +11,11 @@
 script = ExtResource("2_gimum")
 
 [node name="PlanetHealthBar" parent="." instance=ExtResource("3_ntw68")]
+offset_left = 2.0
+offset_right = 52.0
+
+[node name="ShiptHealthBar" parent="." instance=ExtResource("4_iai13")]
+offset_left = 2.0
+offset_top = 14.0
+offset_right = 52.0
+offset_bottom = 19.0

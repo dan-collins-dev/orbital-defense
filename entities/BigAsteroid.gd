@@ -53,13 +53,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	match area.get_parent().name:
 		
 		"Planet":
-			PlayerData.planet_health -= damage
 			hitbox_collider.set_deferred("disabled", true)
 			spawn_explosion(global_position)
 			queue_free()
 			
 		"Satellite":
-			PlayerData.ship_health -= damage
 			hitbox_collider.set_deferred("disabled", true)
 			spawn_explosion(global_position)
 			queue_free()
@@ -74,4 +72,5 @@ func spawn_explosion(pos: Vector2) -> void:
 	var e = Explosion.instantiate()
 	e.rotation_degrees = randf_range(0, 360)
 	e.global_position = pos
+	e.scale *= 2
 	explosions_node.add_child(e)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqr0c5hehbofx"]
+[gd_scene load_steps=7 format=3 uid="uid://cgck4hbngllut"]
 
-[ext_resource type="FontFile" uid="uid://cukbh76vmlrwj" path="res://fonts/PressStart2P-Regular.ttf" id="1_r2hfh"]
-[ext_resource type="Script" path="res://scenes/ui-components/PlanetHealthBar.gd" id="1_vsid4"]
+[ext_resource type="Script" path="res://scenes/ui-components/ShiptHealthBar.gd" id="1_eowev"]
+[ext_resource type="FontFile" uid="uid://cukbh76vmlrwj" path="res://fonts/PressStart2P-Regular.ttf" id="1_ptojj"]
 
 [sub_resource type="Gradient" id="Gradient_qvsxd"]
 offsets = PackedFloat32Array(0)
@@ -21,13 +21,13 @@ gradient = SubResource("Gradient_3dqj7")
 width = 50
 height = 5
 
-[node name="PlanetHealthBar" type="TextureProgressBar"]
+[node name="ShiptHealthBar" type="TextureProgressBar"]
 offset_top = 5.0
 offset_right = 50.0
 offset_bottom = 10.0
 texture_under = SubResource("GradientTexture2D_6wi01")
 texture_progress = SubResource("GradientTexture2D_gatgc")
-script = ExtResource("1_vsid4")
+script = ExtResource("1_eowev")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -39,6 +39,6 @@ offset_top = -1.25
 offset_right = 30.0
 offset_bottom = 2.75
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_r2hfh")
+theme_override_fonts/font = ExtResource("1_ptojj")
 theme_override_font_sizes/font_size = 2
 text = "Planet:"

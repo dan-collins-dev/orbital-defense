@@ -12,13 +12,13 @@ var Projectile = preload("res://entities/Projectile.tscn")
 var can_fire: bool = true
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("right"):
 		rotation_degrees += move_speed * delta
 	
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("left"):
 		rotation_degrees -= move_speed * delta
 		
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("shoot"):
 		if can_fire:
 			laser_sound.play()
 			can_fire = false

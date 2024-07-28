@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdkl816u5bypo"]
+[gd_scene load_steps=5 format=3 uid="uid://bdkl816u5bypo"]
 
 [ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_145yo"]
+[ext_resource type="FontFile" uid="uid://cukbh76vmlrwj" path="res://fonts/PressStart2P-Regular.ttf" id="2_6dmb3"]
+[ext_resource type="PackedScene" uid="uid://qkvwatn38fv0" path="res://scenes/ui-components/Cursor.tscn" id="3_kq2lp"]
+[ext_resource type="AudioStream" uid="uid://dy7fnk3bd5ojk" path="res://sounds/blip.wav" id="4_mymoh"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,10 +14,68 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_145yo")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "start"
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 21.0
+offset_right = 60.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_6dmb3")
+theme_override_font_sizes/font_size = 8
+text = "Orbital Defense"
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -20.0
+offset_right = 32.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6dmb3")
+theme_override_font_sizes/font_size = 8
+text = "Play"
+
+[node name="Controls" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6dmb3")
+theme_override_font_sizes/font_size = 8
+text = "Controls"
+
+[node name="Quit" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6dmb3")
+theme_override_font_sizes/font_size = 8
+text = "Quit
+"
+
+[node name="CursorPositions" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cursor" parent="CursorPositions" instance=ExtResource("3_kq2lp")]
+position = Vector2(56, 84)
+
+[node name="Cursor2" parent="CursorPositions" instance=ExtResource("3_kq2lp")]
+visible = false
+position = Vector2(56, 96)
+
+[node name="Cursor3" parent="CursorPositions" instance=ExtResource("3_kq2lp")]
+visible = false
+position = Vector2(56, 108)
+
+[node name="CursorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mymoh")

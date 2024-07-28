@@ -43,6 +43,6 @@ func _on_spawn_delay_timeout() -> void:
 
 func _on_increase_difficulty():
 	big_speed +=  .01
-	little_speed += .02
+	little_speed += .01
 	if spawn_delay.wait_time >= .25:
 		spawn_delay.wait_time -= .1

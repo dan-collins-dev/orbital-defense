@@ -8,13 +8,10 @@ signal ship_death
 signal planet_death
 signal game_over
 
-var player_name: String = "": get = get_player_name
+var player_name: String = ""
 var score: int = 0 : set = set_score
-var ship_health: int = 3 : set = set_ship_health
+var ship_health: int = 5 : set = set_ship_health
 var planet_health: int = 10 : set = set_planet_health
-
-func get_player_name() -> String:
-	return player_name
 
 func set_score(amount: int) -> void:
 	score = amount
