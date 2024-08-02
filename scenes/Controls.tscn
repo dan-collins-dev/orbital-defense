@@ -1,0 +1,151 @@
+[gd_scene load_steps=3 format=3 uid="uid://k835yhjx1j2"]
+
+[ext_resource type="FontFile" uid="uid://cukbh76vmlrwj" path="res://fonts/PressStart2P-Regular.ttf" id="1_e6vxg"]
+[ext_resource type="Script" path="res://scenes/Controls.gd" id="1_u1hw6"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1hw6")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 13.0
+offset_right = 60.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 8
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="MovementInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 49.0
+offset_right = 60.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 8
+text = "Movement"
+horizontal_alignment = 1
+
+[node name="BackToMenu" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 48.0
+offset_right = 60.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "Press Enter to go to Main Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rotate" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "Movement"
+
+[node name="RotateKeys" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "A/D or Left/Right"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Fire" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "Fire"
+horizontal_alignment = 1
+
+[node name="FireKey" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "Spacebar"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UI" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "UI Navigation"
+horizontal_alignment = 1
+
+[node name="UIKeys" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "WASD / Arrow Keys"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UI" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "UI Accept"
+horizontal_alignment = 1
+
+[node name="UIKeys" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_e6vxg")
+theme_override_font_sizes/font_size = 4
+text = "Enter"
+horizontal_alignment = 1

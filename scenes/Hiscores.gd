@@ -10,9 +10,16 @@ var score_data: Dictionary
 var sorted_scores: Array = []
 
 func _ready() -> void:
+	set_process_unhandled_input(false)
 	if RequestManager.id != "":
 		RequestManager.connect("request_complete", _on_request_complete)
 		RequestManager.post_hiscore(PlayerData.player_name, PlayerData.score)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("accept"):
+		ReferenceManager.PlayerData = null
+		get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 	
 
 func _on_request_complete(data: Array, rank: int) -> void:
@@ -37,3 +44,8 @@ func _on_request_complete(data: Array, rank: int) -> void:
 		new_score.rank.text = "%s" % (index + 1)
 		new_score.score.text = "%s" % 0
 		index += 1
+
+
+func _on_input_delay_timeout() -> void:
+	set_process_unhandled_input(true)
+	$MainMenu.show()

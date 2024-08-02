@@ -8,4 +8,4 @@ process_mode = 1
 script = ExtResource("1_tnton")
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("2_3ou75")]
-position = Vector2(0, -105)
+position = Vector2(0, -151)

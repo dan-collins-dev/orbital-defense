@@ -50,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_tree().change_scene_to_file("res://scenes/World.tscn")
 			
 			1:
-				get_tree().change_scene_to_file("res://ui/ControlsMenu.tscn")
+				get_tree().change_scene_to_file("res://scenes/Controls.tscn")
 			
 			2:
 				get_tree().quit()
